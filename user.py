@@ -31,7 +31,9 @@ class UserDAO:
             self.db.execute(sql)
 
     def update_user(self, id, data):
-        pass
+        if data:
+            sql = self.db.update(table="t_users", filters={'id':id}, data=data)
+            self.db.execute(sql)
 
     def delete_user(self, id):
         pass
@@ -44,5 +46,11 @@ user = {
     'email' : 'soorajbh@buffalo.edu'
 }
 
+user_2 = {
+    'name' : 'Jarvissy',
+    'email' : 'jarvissy@abc.com'
+}
+
 #user_dao.create_user(data=user)
+user_dao.update_user(id=1,data=user_2)
 print(user_dao.get_user(id=1))

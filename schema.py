@@ -36,6 +36,17 @@ class Tables:
             Column("created_at", TIMESTAMP, server_default=func.now())
         )
 
+    def subscription(self):
+        return Table(
+            "t_subscriptions",
+            self.metadata,
+            Column("id", Integer, primary_key=True, autoincrement=True),
+            Column("user", Integer, ForeignKey("t_users.id")),
+            Column("channel", Integer, ForeignKey("t_channels.id")),
+            Column("status", String, nullable=False),
+            Column("created_at", TIMESTAMP, server_default=func.now())
+        )
+
     def _create(self):
         tables = [getattr(Tables,str(key))(self) for key in Tables.__dict__ if not key.startswith("_")]
         

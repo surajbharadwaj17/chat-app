@@ -29,11 +29,11 @@ class DBManager:
 
     def _init_tables(self):
         tables = Tables(schema=self.config.schema, engine=self.engine)
-        # try:
-        metadata = tables._create()
-        return metadata
-        # except Exception as e:
-        #     print(f"Error creating tables\n{str(e)}")
+        try:
+            metadata = tables._create()
+            return metadata
+        except Exception as e:
+            print(f"Error creating tables\n{str(e)}")
 
     def _table(self, table_name:str):
         return self.metadata.tables[f"{self.config.schema}.{table_name}"]
@@ -52,10 +52,8 @@ class DBManager:
         return sql
 
 
-    def _filter(self, sql, filters):
-        # for k,v in filters.items():
-        #     sql = sql.filter()
-        sql = sql.filter(**filters)
+    def _filter(self, sql, filters, table):
+        sql = sql.filter_by(**filters)
         return sql
 
     def insert(self, table, data, onconflict=True):
@@ -67,16 +65,15 @@ class DBManager:
     def select(self, table, filters:dict=None) -> pd.DataFrame:
         sql = select(self._table(table_name=table))
         if filters:
-            sql = self._filter(sql, filters)
-            print(sql)
-            sql = select(self._table(table_name=table)).where(filters)
+            sql = self._filter(sql, filters, self._table(table))
         
         with self.engine.connect() as con:
             df = pd.read_sql(sql=sql, con=con)
         return df
 
     def update(self, table, filters:dict, data):
-        sql = update(self._table(table_name=table)).where(filters)
+        sql = update(self._table(table_name=table)).values(data).filter_by(**filters)
+        return sql
 
     def delete(self, table, filters:dict):
         pass
@@ -84,6 +81,3 @@ class DBManager:
     def execute(self, sql):
         with self.engine.connect() as con:
             con.execute(sql)
-
-
-        # FIlters ain't working son
