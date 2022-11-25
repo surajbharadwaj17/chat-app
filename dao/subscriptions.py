@@ -1,6 +1,6 @@
 ########## Subscription DAO #########
 
-from database import DBConfig, DBManager
+from db.database import DBConfig, DBManager
 
 class SubscriptionDAO:
     def __init__(self) -> None:

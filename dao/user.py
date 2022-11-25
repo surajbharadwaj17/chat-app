@@ -1,5 +1,5 @@
 ###### User DAO #######
-from database import DBConfig, DBManager
+from db.database import DBConfig, DBManager
 
 class UserDAO:
     def __init__(self) -> None:

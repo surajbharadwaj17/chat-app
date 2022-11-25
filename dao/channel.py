@@ -1,6 +1,6 @@
 ########## Channel DAO #########
 
-from database import DBConfig, DBManager
+from db.database import DBConfig, DBManager
 
 class ChannelDAO:
     def __init__(self) -> None:
