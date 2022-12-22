@@ -71,5 +71,6 @@ class SocketClient:
     def run(self):
         self._start()
 
-client = SocketClient(host="127.0.0.1", port=60356, name="x")
-client.run()
+#client = SocketClient(host="127.0.0.1", port=60356, name="x")
+#client.run()
+

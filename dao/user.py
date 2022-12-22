@@ -1,6 +1,8 @@
 ###### User DAO #######
 from db.database import DBConfig, DBManager
 from datetime import datetime
+
+
 class UserDAO:
     def __init__(self) -> None:
         self.db = DBManager(
@@ -39,7 +41,6 @@ class UserDAO:
     def delete_user(self, id):
         pass
 
-
 # user_dao = UserDAO()
 
 # user = {
@@ -55,3 +56,5 @@ class UserDAO:
 # #user_dao.create_user(data=user)
 # user_dao.update_user(id=1,data=user_2)
 # print(user_dao.get_user(id=1))
+
+

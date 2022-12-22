@@ -9,9 +9,7 @@ class SocketConfig:
     host: str
     port: int
 
-
-HOST = "127.0.0.1"
-PORT = 60356
+======
 
 class SocketServer:
     def __init__(self, host:str, port:int) -> None:
@@ -63,7 +61,8 @@ class SocketServer:
     def run(self):
         self._start()
 
-server = SocketServer(host="127.0.0.1", port=60356)
-server.run()
+#server = SocketServer(host="127.0.0.1", port=60356)
+#server.run()
+
 
 
