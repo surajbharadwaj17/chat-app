@@ -14,7 +14,7 @@ Instant messaging app for teams with support for threads and 1:1 messaging
 > Attachment serving is out of context here (for now :) ).
 
 
-# Data models
+# Data models (WIP)
 
 ```
     Message
@@ -44,4 +44,6 @@ Instant messaging app for teams with support for threads and 1:1 messaging
 
 
 ```
+# Sequence diagram (WIP)
+![Sequence Diagram](./workflow.png)
 
