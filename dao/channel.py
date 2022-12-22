@@ -32,20 +32,20 @@ class ChannelDAO:
         pass
 
 
-channel_dao = ChannelDAO()
+# channel_dao = ChannelDAO()
 
-channel = {
-    'name' : 'Test',
-    'description' : 'test',
-    'admin' : 1
-}
+# channel = {
+#     'name' : 'Test',
+#     'description' : 'test',
+#     'admin' : 1
+# }
 
-channel2 = {
-    'name' : 'Test_update',
-    'description' : 'test_update',
-    'admin' : 1
-}
+# channel2 = {
+#     'name' : 'Test_update',
+#     'description' : 'test_update',
+#     'admin' : 1
+# }
 
-#channel_dao.create_channel(data=channel)
-channel_dao.update_channel(id=1, data=channel)
-print(channel_dao.get_channel(id=1))
+# #channel_dao.create_channel(data=channel)
+# channel_dao.update_channel(id=1, data=channel)
+# print(channel_dao.get_channel(id=1))
